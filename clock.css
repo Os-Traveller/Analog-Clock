@@ -1,0 +1,118 @@
+/* variable */
+:root {
+  --bg-color: #2c3e50;
+  --clock-height: 60rem;
+  --clock-col : #34495e;
+}
+
+/* basic */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+ }
+
+.clock {
+  height: var(--clock-height);
+  width: var(--clock-height);
+  border-radius: 50%;
+  background-color: var(--clock-col); 
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+/* Clock Hand  */
+
+/* Clock Number */
+.num {
+  --rotation :0;
+  position: absolute;
+  text-align: center;
+  width:100%;
+  height:100%;
+  font-size: 3rem;
+  font-weight: 800;  
+  transform: rotate(var(--rotation));  
+  padding-top: 2rem;
+  color: #fff;
+}
+
+.num1 {--rotation:30deg;}
+.num2 {--rotation:60deg;}
+.num3 {--rotation:90deg;}
+.num4 {--rotation:120deg;}
+.num5 {--rotation:150deg;}
+.num6 {--rotation:180deg;}
+.num7 {--rotation:210deg;}
+.num8 {--rotation:240deg;}
+.num9 {--rotation:270deg;}
+.num10 {--rotation:300deg;}
+.num11 {--rotation:330deg;}
+
+.numContainer {
+  --rotatopn:0;
+  transform: rotate(var(--rotation));
+}
+.numContainer1{--rotation:-30deg;}
+.numContainer2{--rotation:-60deg;}
+.numContainer3{--rotation:-90deg;}
+.numContainer4{--rotation:-120deg;}
+.numContainer5{--rotation:-150deg;}
+.numContainer6{--rotation:-180deg;}
+.numContainer7{--rotation:-210deg;}
+.numContainer8{--rotation:-240deg;}
+.numContainer9{--rotation:-270deg;}
+.numContainer10{--rotation:-300deg;}
+.numContainer11{--rotation:-330deg;}
+.clock::after { 
+  content: "";
+  background-color: #fff;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+}
+
+.hand {
+  --rotation:0;
+  position: absolute; 
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%) rotate(calc(var(--rotation)*1deg));
+  z-index:1;  
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px; 
+  transform-origin: bottom;
+  background-color: #fff;
+}
+.sec {
+  height: 40%;
+  width: 5px;
+} 
+.min {
+  height: 35%;
+  width: 10px;
+}
+.hour {
+  height: 30%;
+  width: 15px; 
+}
